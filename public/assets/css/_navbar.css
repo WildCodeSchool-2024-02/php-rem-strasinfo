@@ -1,0 +1,7 @@
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background-color: var(--primary-color);
+
+}
+.uk-navbar-nav>li>a {
+    color: white;
+}
