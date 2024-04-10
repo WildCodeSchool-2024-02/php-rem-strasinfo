@@ -31,6 +31,15 @@ CREATE TABLE `item` (
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+CREATE TABLE service (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `price` FLOAT NOT NULL, 
+  description TEXT NOT NULL
+);
+
+INSERT INTO service (name, price, description) VALUES ('test 1', 152, 'MERCI PHILIPPE pour ton intervention très pertinente'), ('test2', 250, 'Merci Julien');
 --
 -- Contenu de la table `item`
 --
