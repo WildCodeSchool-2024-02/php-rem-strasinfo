@@ -6,25 +6,39 @@
 				<a href="#">StrasInfo</a>
 			</li>
 			<li>
-				<a href="#">Service</a>
-				<div class="uk-navbar-dropdown">
-					<ul class="uk-nav uk-navbar-dropdown-nav">
-						<li class="uk-active">
-							<a href="#">Item</a>
-						</li>
-						<li>
-							<a href="#">Connexion</a>
-						</li>
-						<li>
-							<a href="#">Item</a>
-						</li>
-					</ul>
-				</div>
+				<a href="/services">Service</a>
 			</li>
-			<li>
-				<a href="#">Connexion</a>
-			</li>
+			{% if user == false %}
+				<li class="uk-parent">
+					<a href="/register">Inscription</a>
+				</li>
+			{% endif %}
+			{% if user == true %}
+				<li uk-dropnav="mode: click">
+					<a href="">Mon Compte
+						<span uk-icon="icon: triangle-down"></span>
+					</a>
+					<div class="uk-dropdown dropdown">
+						<ul class="uk-nav uk-dropdown-nav">
+							{% if user.isAdmin == 1 %}
+								<li>
+									<a href="/admin/dashboard">Dashboard</a>
+								</li>
+							{% endif %}
+							<li>
+								<a href="/reservation">Réservez un service</a>
+							</li>
+							<li>
+								<a href="/logout">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			{% else %}
+				<li>
+					<a href="/connexion">Connexion</a>
+				</li>
+			{% endif %}
 		</ul>
-
 	</div>
 </nav>

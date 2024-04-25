@@ -15,4 +15,7 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'test' => ['TestController', 'index'],
     'services' => ['ServiceController', 'index'],
+    'register' => ['UserController', 'register',],
+    'connexion' => ['SecurityController', 'login',],
+    'logout' => ['SecurityController', 'logout',],
 ];
