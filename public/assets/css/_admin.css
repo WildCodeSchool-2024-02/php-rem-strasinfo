@@ -1,0 +1,12 @@
+.admin-sidebar nav, .admin-sidebar h1 {
+    padding-left: 1rem;
+}
+
+.admin-sidebar h1 {
+    font-size: 3rem;
+    padding-top: 1rem;
+}
+
+.admin-sidebar nav ul li {
+    font-size: 1.25rem;
+}

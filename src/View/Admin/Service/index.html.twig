@@ -1,0 +1,42 @@
+{% extends 'Admin/layout.html.twig' %}
+
+{% block content %}
+	<div class="uk-container">
+		<h1 class="uk-heading-medium">Tous les services</h1>
+		<a href="/admin/service/new" role="button">ajouter un service</a>
+		<div class="uk-overflow-auto">
+			<table class="uk-table uk-table-divider uk-table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nom du service</th>
+						<th>Prix du service</th>
+						<th>Description</th>
+						<th>Image</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for service in services %}
+						<tr>
+							<td>{{service.id}}</td>
+							<td>{{service.name}}</td>
+							<td>{{service.price}}</td>
+							<td>{{service.description}}</td>
+							<td>{{service.image}}</td>
+							<td>
+								<a class="uk-button uk-button-primary uk-button-small" href="/admin/service/edit?id={{service.id}}">
+									modifier
+								</a>
+								|
+								<a role="button" class=" uk-button uk-button-danger uk-button-small" href="/admin/service/delete?id={{service.id}}">
+									supprimer
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

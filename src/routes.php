@@ -18,4 +18,9 @@ return [
     'register' => ['UserController', 'register',],
     'connexion' => ['SecurityController', 'login',],
     'logout' => ['SecurityController', 'logout',],
+    'admin' => ['AdminController', 'index'],
+    'admin/services' => ['AdminServiceController', 'index'],
+    'admin/service/new' => ['AdminServiceController', 'new',],
+    'admin/service/edit' => ['AdminServiceController', 'edit', ['id']],
+    'admin/service/delete' => ['AdminServiceController', 'delete', ['id']],
 ];

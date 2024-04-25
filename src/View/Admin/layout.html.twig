@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/assets/images/favicon.png">
+
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/css/uikit.min.css">
+		<link rel="stylesheet" href="/assets/css/style.css"> {% block stylesheet %}{% endblock %}
+		</head>
+
+		<body class="uk-height-viewport uk-flex uk-flex-row">
+			<aside class="uk-width-1-6 uk-background-primary uk-light uk-height-viewport admin-sidebar">
+				<h1>Admin</h1>
+				<nav class="uk-nav-default uk-nav-parent-icon" uk-nav>
+					<ul class="uk-nav uk-nav-default">
+						<li>
+							<a href="/admin">Accueil</a>
+						</li>
+						<li>
+							<a href="/admin/services">Gestion des Services</a>
+						</li>
+						<li>
+							<a href="/admin/reservations">Gestion des Réservations</a>
+						</li>
+						<li>
+							<a href="/">Retour sur le site</a>
+						</li>
+						<li>
+							<a href="/logout">Déconnexion</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			<main class="uk-flex-1 uk-padding uk-background-muted"> {% block content %}{% endblock %}
+				</main>
+				{% block javascript %}{% endblock %}
+				<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit.min.js"></script>
+			</body>
+		</html>
+	</body>
+</html>
