@@ -22,8 +22,8 @@
 							<td>{{service.id}}</td>
 							<td>{{service.name}}</td>
 							<td>{{service.price}}</td>
-							<td>{{service.description}}</td>
-							<td>{{service.image}}</td>
+							<td>{{service.description | raw}}</td>
+							<td class="uk-width-1-4"><img class="uk-width-1-2" src="/uploads/{{service.image}}"/></td>
 							<td>
 								<a class="uk-button uk-button-primary uk-button-small" href="/admin/service/edit?id={{service.id}}">
 									modifier

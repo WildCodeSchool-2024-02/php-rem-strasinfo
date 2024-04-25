@@ -8,13 +8,14 @@ class ServiceManager extends AbstractManager
 {
     public const TABLE = 'service';
 
-    public function insert(array $service): int
+    public function insert(array $service, string $fileName): int
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name, description, price) 
-        VALUES (:name, :description, :price)");
-        $statement->bindValue('name', $service['name'], \PDO::PARAM_STR);
-        $statement->bindValue('description', $service['description'], \PDO::PARAM_STR);
-        $statement->bindValue('price', $service['price'], \PDO::PARAM_INT);
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name, description, image, price) 
+        VALUES (:name, :description, :image, :price)");
+        $statement->bindValue(':name', $service['name'], \PDO::PARAM_STR);
+        $statement->bindValue(':description', $service['description'], \PDO::PARAM_STR);
+        $statement->bindValue(':image', $fileName, \PDO::PARAM_STR);
+        $statement->bindValue(':price', $service['price'], \PDO::PARAM_INT);
 
         $statement->execute();
         return (int)$this->pdo->lastInsertId();

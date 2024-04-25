@@ -19,8 +19,15 @@ class AdminServiceController extends AbstractController
     public function new()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $uploadDir = __DIR__ . '/../../public/uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir);
+            }
+            $tmpName = $_FILES['image']['tmp_name'];
+            $fileName = $_FILES['image']['name'];
+            move_uploaded_file($tmpName, $uploadDir . $fileName);
             $serviceManager = new ServiceManager();
-            $serviceManager->insert($_POST);
+            $serviceManager->insert($_POST, $fileName);
             header('Location: /admin/services');
         }
 
