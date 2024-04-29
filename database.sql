@@ -39,18 +39,28 @@ INSERT INTO service (name, price, description) VALUES ('Diagnostic Complet', 50,
 
 
 CREATE TABLE `user` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `pseudo` varchar(45) DEFAULT NULL,
-  `firstname` varchar(45) DEFAULT NULL,
-  `lastname` varchar(45) DEFAULT NULL,
+  `id` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `firstname` varchar(80) NOT NULL,
+  `lastname` varchar(80) NOT NULL,
+  `adresse` TEXT NOT NULL,
   `isAdmin` BOOLEAN DEFAULT NULL,
-  PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (email, password, pseudo, firstname, lastname, isAdmin) VALUES ('admin@admin.com', '$2y$10$lUMqQlZ805EXrgjY6GZhSOyPS6p7uAiuNDBKZKjcFKeyOjvHmHYdW', 'admin', 'admin','admin', 1);
+INSERT INTO `user` (email, password, firstname, lastname, adresse, isAdmin) VALUES ('admin@admin.com', '$2y$10$lUMqQlZ805EXrgjY6GZhSOyPS6p7uAiuNDBKZKjcFKeyOjvHmHYdW', 'admin','admin', '12 rue de Paris', 1);
+
+CREATE TABLE `service_user` (
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `description` TEXT NULL,
+    `laptop` VARCHAR(150) NOT NULL,
+    `service_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+    FOREIGN KEY (`service_id`) REFERENCES `service`(`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+    FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION 
+)ENGINE = InnoDB;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

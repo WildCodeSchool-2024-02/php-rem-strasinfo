@@ -17,5 +17,7 @@ return [
     'admin/service/new' => ['AdminServiceController', 'new',],
     'admin/service/edit' => ['AdminServiceController', 'edit', ['id']],
     'admin/service/delete' => ['AdminServiceController', 'delete', ['id']],
-    'service' => ['ServiceController', 'show', ['id']]
+    'service' => ['ServiceController', 'show', ['id']],
+    'devis' => ['DevisController', 'add'],
+    'admin/devis' => ['AdminDevisController', 'index']
 ];

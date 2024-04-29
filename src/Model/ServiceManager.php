@@ -32,4 +32,10 @@ class ServiceManager extends AbstractManager
 
         return $statement->execute();
     }
+
+    public function selectId(): array
+    {
+        $query = $this->pdo->query("SELECT id FROM " . self::TABLE);
+        return $query->fetchAll();
+    }
 }

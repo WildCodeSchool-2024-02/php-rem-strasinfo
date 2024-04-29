@@ -1,0 +1,47 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+	<h1>Demandez un devis</h1>
+
+	<form method="post">
+		<div class="uk-margin">
+			{% if errors.laptop is defined %}
+				<label for="laptop">La marque de votre ordinateur</label>
+				<input class="uk-input uk-form-danger" type="text" name="laptop" id="laptop" placeholder="MacBook pro 2016" aria-label="MacBook pro 2016">
+				<p class="uk-text-danger">{{errors.laptop}}</p>
+			{% else %}
+				<label for="laptop">La marque de votre ordinateur</label>
+				<input class="uk-input" type="text" name="laptop" id="laptop" placeholder="MacBook pro 2016" aria-label="MacBook pro 2016">
+			{% endif %}
+		</div>
+		<div class="uk-margin">
+			{% if errors.service is not defined %}
+				<label for="service" class="uk-form-label">Choisir un service</label>
+				<select class="uk-select" aria-label="Select" id="service" name="service">
+					<option value="">Veuillez sélectionnez un service</option>
+					{% for service in services %}
+						<option value="{{service.id}}">{{service.name}}</option>
+					{% endfor %}
+				</select>
+			{% else %}
+				<label for="service" class="uk-form-label">Choisir un service</label>
+				<select class="uk-select uk-form-danger" aria-label="Select" id="service" name="service">
+					<option value="">Veuillez sélectionnez un service</option>
+					{% for service in services %}
+						<option value="{{service.id}}">{{service.name}}</option>
+					{% endfor %}
+				</select>
+				<p class="uk-text-danger">{{errors.service}}</p>
+			{% endif %}
+		</div>
+		<div class="uk-margin">
+			<label for="description">Je décris mon problème rencontré</label>
+			<textarea class="uk-textarea" name="description" id="description" rows="5" placeholder="Mon problème" aria-label="Mon problème"></textarea>
+		</div>
+		<div class="uk-margin">
+			<button class="uk-button uk-button-primary" type="submit">Demandez un devis</button>
+		</div>
+	</form>
+
+{% endblock %}

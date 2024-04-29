@@ -1,0 +1,38 @@
+{% extends 'Admin/layout.html.twig' %}
+
+{% block content %}
+
+	<div class="uk-container">
+		<h1 class="uk-heading-medium">Tous les devis</h1>
+		<div class="uk-overflow-auto">
+			<table class="uk-table uk-table-divider uk-table-striped">
+				<thead>
+					<tr>
+						<th>Numéro du devis</th>
+						<th>Nom du client</th>
+						<th>Email du client</th>
+						<th>Adresse du client</th>
+						<th>Nom du service</th>
+						<th>Marque Ordinateur</th>
+						<th>Description</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for quote in devis %}
+						<tr>
+							<td>{{quote.id}}</td>
+							<td>{{ quote.firstname ~ ' ' ~ quote.lastname }}</td>
+							<td>{{quote.email}}</td>
+							<td>{{quote.adresse}}</td>
+							<td>{{quote.name}}</td>
+							<td>{{quote.laptop}}</td>
+							<td>{{quote.description}}</td>
+							<td></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
