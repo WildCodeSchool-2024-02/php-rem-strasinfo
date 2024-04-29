@@ -16,4 +16,14 @@ class ServiceController extends AbstractController
             'services' => $services
         ]);
     }
+
+    public function show(int $id): string
+    {
+        $model = new ServiceManager();
+        $service = $model->selectOneById($id);
+
+        return $this->twig->render('Service/show.html.twig', [
+            'service' => $service
+        ]);
+    }
 }
