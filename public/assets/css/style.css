@@ -1,4 +1,5 @@
 @import url('./_variable.css');
 @import url('./_global.css');
 @import url('./_navbar.css');
-@import url('_admin.css');
+@import url('./_admin.css');
+@import url('./_home.css');

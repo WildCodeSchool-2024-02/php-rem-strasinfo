@@ -1,11 +1,90 @@
 {% extends 'layout.html.twig' %}
 {% block title %}
-	test
+	StrasInfo
+{% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 {% endblock %}
 
 {% block content %}
-	<h1>Hello Wilder !</h1>
-	<p>Find a complete CRUD example on
-		<a href="/items">/items</a>
-		page.</p>
+	<h1 class="uk-text-center uk-margin-large-top">Bienvenue sur le site StrasInfo</h1>
+	<section class="uk-section uk-margin-large-top uk-background-muted section-home-bg" data-aos="fade-right">
+		<div class=" uk-container uk-flex uk-flex-middle uk-flex-center">
+			<div class="uk-width-1-2@s uk-text-center uk-text-lead">
+				<p class="text-home">Confiez-nous la réparation de vos ordinateurs ! Nous vous offrons des services de qualité pour que vous puissiez retrouver rapidement un ordinateur fonctionnel. Notre équipe qualifiée assure discrétion et professionnalisme à chaque étape.</p>
+			</div>
+			<div class="uk-width-1-2@s uk-flex uk-flex-center">
+				<img src="/assets/images/Reparation-ordinateur.jpg" class="uk-width-large" alt="">
+			</div>
+		</div>
+	</section>
+	<section class="uk-section uk-margin-large-top" data-aos="fade-left">
+		<div class="uk-container uk-flex uk-flex-middle uk-flex-center">
+			<div class="uk-width-1-2@s uk-flex uk-flex-center">
+				<img src="/assets/images/credit-dimpot.png" class="uk-width-large" alt="">
+			</div>
+			<div class="uk-width-1-2@s uk-text-center uk-text-lead">
+				<p class="text-home">En plus de nos services de réparation, nous offrons gratuitement une vérification complète de votre ordinateur pour détecter tout 
+									autre problème potentiel. Cela vous permet d'éviter les pannes futures et de maintenir votre ordinateur en parfait état de fonctionnement.</p>
+			</div>
+		</div>
+	</section>
+	<section class="uk-section uk-margin-large-top uk-background-muted section-home-bg uk-margin-large-top" data-aos="fade-right">
+		<h2 class="uk-margin-bottom uk-text-center">Pourquoi Nous Choisir ?</h2>
+		<div class="uk-container uk-flex uk-flex-middle uk-flex-center">
+			<div class="uk-width-1-2@s uk-text-center uk-text-lead">
+				<ul class="uk-list uk-list-bullet uk-text-left uk-margin-bottom">
+					<li class="text-home">Expertise Qualifiée : Nos techniciens sont des experts qualifiés et empathiques, capables de répondre à vos besoins 
+											spécifiques en matière de réparation informatique.</li>
+					<li class="text-home">Confiance et Discrétion : Votre confidentialité est notre priorité, notre équipe est sélectionnée avec soin pour 
+											garantir la sécurité de vos données.</li>
+					<li class="text-home">Assistance Complète : Réparation de matériel, résolution de problèmes logiciels, optimisation des performances.</li>
+				</ul>
+			</div>
+			<div class="uk-width-1-2@s uk-flex uk-flex-center">
+				<img src="/assets/images/reparation-ordinateur-prestations.jpeg" class="uk-width-large" alt="">
+			</div>
+		</div>
+	</section>
+	<section class="uk-section uk-margin-small-top" data-aos="fade-left">
+		<h2 class="uk-margin-medium-bottom uk-text-center">Vous bénéficiez également de :</h2>
+		<div class="uk-container uk-flex uk-flex-middle uk-flex-center">
+			<div class="uk-width-1-2@s uk-flex uk-flex-center">
+				<img src="" class="uk-width-large" alt="">
+			</div>
+			<div class="uk-width-1-2@s uk-text-center uk-text-lead">
+				<ul class="uk-list uk-list-bullet uk-text-left uk-margin-bottom">
+					<li class="text-home">Service Personnalisé : Des solutions adaptées à vos besoins individuels, pour une réparation sur mesure.</li>
+					<li class="text-home">Équipe Attentionnée : Des techniciens disponibles et à l'écoute, prêts à vous aider dans toutes les situations.</li>
+					<li class="text-home">Flexibilité de Paiement : Des options de paiement flexibles pour s'adapter à votre budget.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
+
+{% block javascript %}
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+disable: false,
+startEvent: 'DOMContentLoaded',
+initClassName: 'aos-init',
+animatedClassName: 'aos-animate',
+useClassNames: false,
+disableMutationObserver: false,
+debounceDelay: 50,
+throttleDelay: 99,
+offset: 120,
+delay: 5,
+duration: 1500,
+easing: 'ease',
+once: false,
+mirror: false,
+anchorPlacement: 'top-bottom'
+
+});
+	</script>
 {% endblock %}
